@@ -1,0 +1,11 @@
+{
+  "name": "interactionapp",
+  "version": "1.0.0",
+  "description": "an interaction web app using p5.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zzzz",
+  "license": "ISC"
+}
