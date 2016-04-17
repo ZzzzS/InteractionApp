@@ -3,8 +3,6 @@ var Button = function (option){
 	EventTarget.call(this);
 	if(arguments.length > 0){
 		this.position = option.position.copy();
-		//this.width = w;
-		//this.height = h;
 		this.radius = option.radius || 50;
 		this.p = option.p;
 		this.pState = "mouseOut";
