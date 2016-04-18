@@ -3,20 +3,30 @@ var Button = function (option){
 	EventTarget.call(this);
 	if(arguments.length > 0){
 		this.position = option.position.copy();
-		//this.width = w;
-		//this.height = h;
 		this.radius = option.radius || 50;
-		this.p = option.p;
-		this.pState = "mouseOut";
+		this.canvas = option.canvas;
+		
+		this.ctx = this.canvas.getContext('2d');
+		
+		/*this.pState = "mouseOut";
 		this.pSwitch = "off";
 		this.switchEffect = true;
 		this.hoverCol = this.p.color("#06799F");
 		this.pressCol = this.p.color("#216278");
-		this.clickCol = this.p.color("#024E68");
+		this.clickCol = this.p.color("#024E68");*/
 	}
 }
 util.inheritPrototype(Button,EventTarget);
-Button.prototype.isSelected = function(){
+Button.prototype.display = function () {
+	this.ctx.fillStyle = 'white';
+	this.ctx.strokeStyle = 'black';
+	this.ctx.beginPath();
+	this.ctx.arc(this.position.x,this.position.y,this.radius,0,Math.PI*2,true);
+	this.ctx.closePath();
+	this.ctx.fill();
+	this.ctx.stroke();
+}
+/*Button.prototype.isSelected = function(){
 	if(this.p.mouseX >= this.position.x - this.radius/2 && this.p.mouseX <= this.position.x + this.radius/2 && this.p.mouseY >= this.position.y - this.radius/2 && this.p.mouseY <= this.position.y + this.radius/2){
 		return true;
 	}else{
@@ -108,7 +118,7 @@ Button.prototype.drawGeometry = function(){
 	this.p.translate(this.position.x,this.position.y);
 	this.p.ellipse(0,0,this.radius,this.radius);
 	this.p.pop();
-}
+}*/
 
 function EventTarget(){
 	this.handlers = {};
