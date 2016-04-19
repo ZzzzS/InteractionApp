@@ -1,22 +1,10 @@
 var util = require("./util");
-var Mouse  = Mouse || require("./mouse");
 var Button = function (option){
 	EventTarget.call(this);
 	if(arguments.length > 0){
 		this.position = option.position.copy();
 		this.radius = option.radius || 50;
 		this.p = option.p;
-		/*this.canvas = option.canvas;
-		
-		this.canvas.onmousemove = function (e){
-            var _box = e.currentTarget.getBoundingClientRect();
-            Mouse.mousePos = {
-                x : e.clientX - _box.left * (e.currentTarget.width / _box.width),
-                y : e.clientY - _box.top * (e.currentTarget.height / _box.height)
-            }
-        }
-		
-		this.ctx = this.canvas.getContext('2d');*/
 		
 		this.pState = "mouseOut";
 		this.pSwitch = "off";
@@ -27,16 +15,7 @@ var Button = function (option){
 	}
 }
 util.inheritPrototype(Button,EventTarget);
-// Button.prototype.display = function () {
-// 	console.log(Mouse.mousePos);
-// 	this.ctx.fillStyle = 'white';
-// 	this.ctx.strokeStyle = 'black';
-// 	this.ctx.beginPath();
-// 	this.ctx.arc(Mouse.mousePos.x,Mouse.mousePos.y,this.radius,0,Math.PI*2,true);
-// 	this.ctx.closePath();
-// 	this.ctx.fill();
-// 	this.ctx.stroke();
-// }
+
 Button.prototype.isSelected = function(){
 	if(this.p.mouseX >= this.position.x - this.radius/2 && this.p.mouseX <= this.position.x + this.radius/2 && this.p.mouseY >= this.position.y - this.radius/2 && this.p.mouseY <= this.position.y + this.radius/2){
 		return true;

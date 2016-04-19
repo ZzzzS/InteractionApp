@@ -1,32 +1,4 @@
-//var p5 = require("./p5.min");
 var Button = require("./button");
-//var geo = require("./geometry");
-
-//var vect = new geo.Vector(100,100);
-
-/*var newCanvas = (function () {
-    var canvas = document.createElement("canvas");
-    canvas.width = 960;
-    canvas.height = 600;
-    document.body.appendChild(canvas);
-    return canvas;
-}());
-
-
-
-var option = {
-    position : vect,
-    canvas : newCanvas,
-    radius : 50
-}*/
-
-//var b = new Button(option);
-
-// (function loop(){
-//     b.ctx.clearRect(0,0,newCanvas.width,newCanvas.height);
-//     b.display();
-//     setTimeout(loop,1000 / 60);
-// })();
 var sketch = function(p){
     var b;
     p.setup = function () {
