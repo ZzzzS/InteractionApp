@@ -72,11 +72,7 @@ Button.prototype.display = function(){
 			this.pState = "hover";
 			break;
 		case "mouseOut":
-			if(this.fillCol){
-				this.p.fill(this.fillCol);
-			}else{
-				this.p.fill(this.p.color(0,0,100));
-			}
+			this.p.fill(this.fillCol || this.p.color(0,0,100));
 			this.drawGeometry();
 			this.fire({type:"mouseOut"});
 			this.pState = "mouseOut";
@@ -94,11 +90,7 @@ Button.prototype.display = function(){
 			this.pState = "click";
 			break;
 		default:
-			if(this.fillCol){
-				this.p.fill(this.fillCol);
-			}else{
-				this.p.fill(this.p.color(0,0,100));
-			}
+			this.p.fill(this.fillCol || this.p.color(0,0,100));
 			this.drawGeometry();
 	}
 }

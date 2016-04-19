@@ -17,4 +17,8 @@ var sketch = function(p){
     };
 };
 
-var myp5 = new p5(sketch,'sketch');
+try{
+    var myp5 = new p5(sketch,'sketch');
+}catch(e){
+    alert("本程序基于p5.js开发，请在引用本程序前引入“p5.js”，例如 <script type='text/javascript src='p5.min.js' charset='utf-8'></script>");
+}
