@@ -1,6 +1,9 @@
 var Button = require("./button");
+var Mouse = require("./mouse");
 var sketch = function(p){
     var b;
+    var mouse;
+    var canvas;
     p.setup = function () {
         p.createCanvas(960,600);
         var option = {
@@ -9,11 +12,17 @@ var sketch = function(p){
             p:p
         }
         b = new Button(option);
+        canvas = document.createElement("canvas");
+        canvas.width = 500;
+        canvas.height = 500;
+        document.body.appendChild(canvas);
+        mouse = new Mouse(canvas);
     };
     p.draw = function () {
         p.background(230);
         p.rect(p.mouseX,p.mouseY,100,100);
         b.display();
+        console.log(mouse.mousePos);
     };
 };
 
